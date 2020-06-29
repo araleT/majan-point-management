@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8' />
+    <title>麻雀点数管理</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" 
+        href="http://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="program.js"></script>
+</head>
+<body>
+
+    <div id="parent">
+
+        <div id="menu">
+            <select id="menu1">
+                <option value="0">MENU</option>
+                <option value="1">名前を変更</option>
+                <option value="2">親を変更</option>
+                <option value="3">場を初期化</option>
+            </select>
+        </div>
+
+        <div id="undo-redo">
+            <button id="undo" title="1つ前の状態に戻すよ"><img src="icon_back.png" alt="戻る"></button>
+            <button id="redo" title="1つ次の状態に進めるよ"><img src="icon_forward.png" alt="進む"></button>
+        </div>
+
+        <div id="one">
+            <p class="p1">
+                <img src="animal_arupaka.png">
+                <a class="one-name">あるぱか</a> <br>
+                <a id="one-kaze">東</a><br>
+            </p>
+            <p class="p2">
+                25000
+            </p>
+        </div>
+
+        <div id="two">
+            <p class="p1">
+                <img src="animal_inu.png">
+                <a class="two-name">いぬ</a> <br>
+                <a id="two-kaze">南</a> <br>
+            </p>
+            <p class="p2">
+                25000
+            </p>
+        </div>
+
+        <div id="three">
+            <p class="p1">
+                <img src="animal_neko.png">
+                <a class="three-name">ねこ</a> <br>
+                <a id="three-kaze">西</a> <br>
+            </p>
+            <p class="p2">
+                25000
+            </p>
+        </div>
+
+        <div id="four">
+            <p class="p1">
+                <img src="animal_penguin.png">
+                <a class="four-name">ぺんぎん</a> <br>
+                <a id="four-kaze">北</a> <br>
+            </p>
+            <p class="p2">
+                25000
+            </p>
+        </div>
+
+        <div id="center">
+            <a id="bafu">東</a> <a id="kyoku">1</a> 局 <br>
+            <a id="honba">0</a>本場 <br>
+            <button id="show1">上がり</button><br><br>
+            <button id="show2">流局</button>
+        </div>
+
+        <div id="agari">
+            <form>
+                <p>
+                    あがり<br>
+                    <input type="radio" name="cb1" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="radio" name="cb1" value="1"> <a class="two-name">いぬ</a>
+                    <input type="radio" name="cb1" value="2"> <a class="three-name">ねこ</a>
+                    <input type="radio" name="cb1" value="3"> <a class="four-name">ぺんぎん</a>
+                    <hr>
+                </p>
+                <p>
+                    ふりこみ（ツモはチェックなし）<br>
+                    <input type="radio" name="cb2" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="radio" name="cb2" value="1"> <a class="two-name">いぬ</a>
+                    <input type="radio" name="cb2" value="2"> <a class="three-name">ねこ</a>
+                    <input type="radio" name="cb2" value="3"> <a class="four-name">ぺんぎん</a>
+                    <hr>
+                </p>
+                <p>
+                    リーチは？<br>
+                    <input type="checkbox" name="cb3" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="checkbox" name="cb3" value="1"> <a class="two-name">いぬ</a>
+                    <input type="checkbox" name="cb3" value="2"> <a class="three-name">ねこ</a>
+                    <input type="checkbox" name="cb3" value="3"> <a class="four-name">ぺんぎん</a>
+                    <hr>
+                </p>
+                <p>
+                    飜: <input type="text" name="han">
+                </p>
+                <p>
+                    符: <input type="text" name="fu">
+                </p>
+                <input type="submit" value="決定">
+            </form>
+        </div>
+
+        <div id="ryukyoku">
+            <form>
+                <p>
+                    テンパイは？<br>
+                    <input type="checkbox" name="cb1" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="checkbox" name="cb1" value="1"> <a class="two-name">いぬ</a>
+                    <input type="checkbox" name="cb1" value="2"> <a class="three-name">ねこ</a>
+                    <input type="checkbox" name="cb1" value="3"> <a class="four-name">ぺんぎん</a>
+                </p>
+                <p>
+                    リーチは？<br>
+                    <input type="checkbox" name="cb2" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="checkbox" name="cb2" value="1"> <a class="two-name">いぬ</a>
+                    <input type="checkbox" name="cb2" value="2"> <a class="three-name">ねこ</a>
+                    <input type="checkbox" name="cb2" value="3"> <a class="four-name">ぺんぎん</a>
+                </p>
+                <input type="submit" value="決定">
+            </form>
+
+        </div>
+
+        <div id="result">
+            <p>
+                <a id="1"></a>　＋（<a id="2"></a>）＋（<a id="3"></a>）
+            </p>
+            <p>
+                <a class="one-name">あるぱか</a> 　 <a id="point0"></a><br>
+                <a class="two-name">いぬ</a> 　 <a id="point1"></a><br>
+                <a class="three-name">ねこ</a> 　 <a id="point2"></a><br>
+                <a class="four-name">ぺんぎん</a> 　 <a id="point3"></a>
+            </p>
+        </div>
+
+        <div id="name-change">
+            <form>
+                <p>
+                    <a class="one-name">あるぱか</a> 　→　 <input type="text" name="nc" value="あるぱか"> <br>
+                    <a class="two-name">いぬ</a> 　→　 <input type="text" name="nc" value="いぬ"> <br>
+                    <a class="three-name">ねこ</a> 　→　 <input type="text" name="nc" value="ねこ"> <br>
+                    <a class="four-name">ぺんぎん</a> 　→　 <input type="text" name="nc" value="ぺんぎん"> <br>
+                </p>
+                <input type="submit" value="決定">
+            </form>
+        </div>
+
+        <div id="oya-change">
+            <form>
+                <p>
+                    <input type="radio" name="oc" value="0"> <a class="one-name">あるぱか</a>
+                    <input type="radio" name="oc" value="1"> <a class="two-name">いぬ</a>
+                    <input type="radio" name="oc" value="2"> <a class="three-name">ねこ</a>
+                    <input type="radio" name="oc" value="3"> <a class="four-name">ぺんぎん</a>
+                </p>
+                <input type="submit" value="決定">
+            </form>
+        </div>
+
+        <div id="initialize">
+            <form>
+                <p>
+                    本当に初期化する？ <br>
+                    <input type="submit" value="YES">
+                </p>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

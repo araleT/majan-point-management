@@ -1,0 +1,110 @@
+#parent {
+    width: 800px;
+    height: 800px;
+    background-color: rgb(17, 148, 35);
+    position: absolute;
+    top:  0px;
+    left: 0px;
+}
+
+#one {
+    width: 200px;
+    height: 200px;
+    background-color: beige;
+    position: absolute;
+    top:  525px;
+    left: 275px;
+}
+
+#two {
+    width: 200px;
+    height: 200px;
+    background-color: beige;
+    position: absolute;
+    top:  275px;
+    left: 525px;
+}
+
+#three {
+    width: 200px;
+    height: 200px;
+    background-color: beige;
+    position: absolute;
+    top:  25px;
+    left: 275px;
+}
+
+#four {
+    width: 200px;
+    height: 200px;
+    background-color: beige;
+    position: absolute;
+    top:  275px;
+    left: 25px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.p1 {
+    text-align: center; 
+}
+
+.p2 {
+    float: clear;
+    text-align: center;
+    font-size: 40px
+}
+
+#center {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: silver;
+    border-radius: 20px;
+    position: absolute;
+    top:  275px;
+    left: 275px;
+}
+
+#menu {
+    padding: 10px;
+}
+
+#undo-redo {
+    position: absolute;
+    top:  15px;
+    left: 650px;
+}
+
+#undo-redo img {
+    width: 20px;
+    height: 20px;
+}
+
+#undo-redo p {
+    white-space: nowrap;
+    font-size: 15px;
+    position: absolute;
+    left: -20px;
+}
+
+#agari, #ryukyoku, #name-change, #oya-change, #initialize {
+    display: none;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+}
+
+#name-change input {
+    margin: 5px;
+}
+
+#result {
+    display: none;
+    padding: 10px 10px 10px 10px;
+    background-color: yellow;
+}
